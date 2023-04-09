@@ -11,7 +11,7 @@ public class Mandelbrot extends FractalGenerator {
         range.height = 3;
     }
 
-    // Константа с максимальным количеством итераций
+    // Константа
     public static final int MAX_ITERATIONS = 2000;
 
     public int numIterations(double x, double y) {
@@ -31,6 +31,4 @@ public class Mandelbrot extends FractalGenerator {
         }
         return iterCounter < MAX_ITERATIONS ? iterCounter : -1;
     }
-
-    public String toString() { return "Mandelbrot"; }
 }
