@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class FractalExplorer {
-    private int displaySize; // сторона квадратного экрана
+    private int displaySize; // СЃС‚РѕСЂРѕРЅР° РєРІР°РґСЂР°С‚РЅРѕРіРѕ СЌРєСЂР°РЅР°
 
     private JImageDisplay display;
 
@@ -22,11 +22,11 @@ public class FractalExplorer {
 
     public void createAndShowGUI() {
         display.setLayout(new BorderLayout());
-        JFrame frame = new JFrame("Fractal Explorer"); // Даем заголовок нашему окну
-        frame.add(display, BorderLayout.CENTER); // Добавляет и центрирует объект изображения
-        frame.setSize(displaySize, displaySize); // Определение размера окна
+        JFrame frame = new JFrame("Fractal Explorer"); // Р”Р°РµРј Р·Р°РіРѕР»РѕРІРѕРє РЅР°С€РµРјСѓ РѕРєРЅСѓ
+        frame.add(display, BorderLayout.CENTER); // Р”РѕР±Р°РІР»СЏРµС‚ Рё С†РµРЅС‚СЂРёСЂСѓРµС‚ РѕР±СЉРµРєС‚ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+        frame.setSize(displaySize, displaySize); // РћРїСЂРµРґРµР»РµРЅРёРµ СЂР°Р·РјРµСЂР° РѕРєРЅР°
 
-        // Инициализация панели с кнопкой сброса
+        // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°РЅРµР»Рё СЃ РєРЅРѕРїРєРѕР№ СЃР±СЂРѕСЃР°
         JPanel myPanel = new JPanel();
         frame.add(myPanel, BorderLayout.NORTH);
         JButton resetButton = new JButton("Reset");
@@ -34,27 +34,27 @@ public class FractalExplorer {
         frame.add(resetButton, BorderLayout.SOUTH);
 
         ButtonHandler resetHandler = new ButtonHandler();
-        //Обработка события нажатия на кнопку Reset
+        //РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РЅР° РєРЅРѕРїРєСѓ Reset
         resetButton.addActionListener(resetHandler);
 
-        //Обработка события нажатия мышкой
+        //РћР±СЂР°Р±РѕС‚РєР° СЃРѕР±С‹С‚РёСЏ РЅР°Р¶Р°С‚РёСЏ РјС‹С€РєРѕР№
         MouseHandler click = new MouseHandler();
         display.addMouseListener(click);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Закрытие окна по клику на крестик
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Р—Р°РєСЂС‹С‚РёРµ РѕРєРЅР° РїРѕ РєР»РёРєСѓ РЅР° РєСЂРµСЃС‚РёРє
 
         frame.pack();
-        frame.setVisible(true); // Делаем рамку видимой
+        frame.setVisible(true); // Р”РµР»Р°РµРј СЂР°РјРєСѓ РІРёРґРёРјРѕР№
         frame.setResizable (false);
 
     }
 
     /**
-     * Вспомогательный метод для отображения фрактала.
-     * Он проходится по пикселям на дисплее и вычисляет количество итераций для координат во фрактале
-     * Если кол-во итераций = -1, он устанавливает чёрный цвет пикселя,
-     * иначе же выбирает значение в зависимости от количества итераций.
-     * Когда всё готово - обновляет дисплей
+     * Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С„СЂР°РєС‚Р°Р»Р°.
+     * РћРЅ РїСЂРѕС…РѕРґРёС‚СЃСЏ РїРѕ РїРёРєСЃРµР»СЏРј РЅР° РґРёСЃРїР»РµРµ Рё РІС‹С‡РёСЃР»СЏРµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РёС‚РµСЂР°С†РёР№ РґР»СЏ РєРѕРѕСЂРґРёРЅР°С‚ РІРѕ С„СЂР°РєС‚Р°Р»Рµ
+     * Р•СЃР»Рё РєРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№ = -1, РѕРЅ СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С‡С‘СЂРЅС‹Р№ С†РІРµС‚ РїРёРєСЃРµР»СЏ,
+     * РёРЅР°С‡Рµ Р¶Рµ РІС‹Р±РёСЂР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РєРѕР»РёС‡РµСЃС‚РІР° РёС‚РµСЂР°С†РёР№.
+     * РљРѕРіРґР° РІСЃС‘ РіРѕС‚РѕРІРѕ - РѕР±РЅРѕРІР»СЏРµС‚ РґРёСЃРїР»РµР№
      */
     private void drawFractal() {
         for (int x = 0; x < displaySize; ++x){
@@ -80,26 +80,26 @@ public class FractalExplorer {
 
     private class MouseHandler extends MouseAdapter {
         /**
-         * Когда происходит нажатие мышкой, перемещается на указанные щелчком координаты.
-         * Приближение вполовину от нынешнего.
+         * РљРѕРіРґР° РїСЂРѕРёСЃС…РѕРґРёС‚ РЅР°Р¶Р°С‚РёРµ РјС‹С€РєРѕР№, РїРµСЂРµРјРµС‰Р°РµС‚СЃСЏ РЅР° СѓРєР°Р·Р°РЅРЅС‹Рµ С‰РµР»С‡РєРѕРј РєРѕРѕСЂРґРёРЅР°С‚С‹.
+         * РџСЂРёР±Р»РёР¶РµРЅРёРµ РІРїРѕР»РѕРІРёРЅСѓ РѕС‚ РЅС‹РЅРµС€РЅРµРіРѕ.
          */
         @Override
         public void mouseClicked(MouseEvent e)
         {
-            // Принимает x координату нажатия
+            // РџСЂРёРЅРёРјР°РµС‚ x РєРѕРѕСЂРґРёРЅР°С‚Сѓ РЅР°Р¶Р°С‚РёСЏ
             int x = e.getX();
             double xCoord = fractal.getCoord(range.x, range.x + range.width, displaySize, x);
-            // Принимает y координату нажатия
+            // РџСЂРёРЅРёРјР°РµС‚ y РєРѕРѕСЂРґРёРЅР°С‚Сѓ РЅР°Р¶Р°С‚РёСЏ
             int y = e.getY();
             double yCoord = fractal.getCoord(range.y, range.y + range.height, displaySize, y);
 
             fractal.recenterAndZoomRange(range, xCoord, yCoord, 0.5);
 
-            // Перерисовывает фрактал после приближения
+            // РџРµСЂРµСЂРёСЃРѕРІС‹РІР°РµС‚ С„СЂР°РєС‚Р°Р» РїРѕСЃР»Рµ РїСЂРёР±Р»РёР¶РµРЅРёСЏ
             drawFractal();
         }
     }
-    /** Внутренний класс для обрабокти событий ActionListener **/
+    /** Р’РЅСѓС‚СЂРµРЅРЅРёР№ РєР»Р°СЃСЃ РґР»СЏ РѕР±СЂР°Р±РѕРєС‚Рё СЃРѕР±С‹С‚РёР№ ActionListener **/
     private class ButtonHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
